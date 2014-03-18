@@ -1,6 +1,7 @@
-mvrs
-===========
+component-motor-vehicle-registration-system-auditing-services
+=============================================================
 
+<<<<<<< HEAD
 Auditing Component Description
 The Auditing Component provides an interface to track all events on a system by creating an Audit Record into the system’s database.
 
@@ -45,3 +46,6 @@ CREATE TABLE `event_audit` (
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 
+=======
+Component to facilitate auditing services
+>>>>>>> 14d99dfcea9c52e62695cb0550c3ef4ba2ab504d
