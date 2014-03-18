@@ -24,7 +24,7 @@ public class JsonUtil {
 		
 		Map map = new HashMap();
 		map.put("code", (status != true) ? 422 : 200 );
-		map.put("data",(status != true) ? null : "Audit Entry with event ID: "+eventAuditId+" Successfully Created." );
+		map.put("data",(status != true) ? "System Error Occured." : "Audit Entry with event ID: "+eventAuditId+" Successfully Created." );
 		map.put("debug", debug);
 		
 		JSONObject jsonObj = new JSONObject(map);

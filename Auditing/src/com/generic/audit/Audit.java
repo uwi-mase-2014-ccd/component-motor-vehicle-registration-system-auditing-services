@@ -71,11 +71,13 @@ public class Audit extends HttpServlet {
 			// TODO Auto-generated catch block
 			successFlag = false;
 			errMsg = e.getMessage();
+			System.out.println("SQL Exception: " + e.getMessage());
 			e.printStackTrace();
 		}catch (Exception e)
 		{
 			successFlag = false;
 			errMsg = e.getMessage();
+			System.out.println("Exception: " + e.getMessage());
 			e.printStackTrace();
 		}
 		System.out.println("Audit Status: " + successFlag);

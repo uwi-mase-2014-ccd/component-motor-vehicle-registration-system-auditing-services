@@ -11,7 +11,7 @@ import com.generic.audit.AuditObj;
 public class AuditDAO extends BaseDAO {
 
 	
-	public AuditDAO(AuditObj audit) {
+	public AuditDAO(AuditObj audit) throws SQLException {
 		super(audit);
 		// TODO Auto-generated constructor stub
 	}

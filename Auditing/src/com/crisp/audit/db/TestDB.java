@@ -23,16 +23,18 @@ public class TestDB {
 		audit.setEvent("Process Payment");
 		audit.setEventId(new Integer(6));
 		
-		AuditDAO auditDAO = new AuditDAO(audit);
+		
 		
 		try {
+			AuditDAO auditDAO = new AuditDAO(audit);
 			boolean responseFlag = auditDAO.insertAudit(audit);
+			auditDAO.getAudits();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		auditDAO.getAudits();
+		
 
 	}
 

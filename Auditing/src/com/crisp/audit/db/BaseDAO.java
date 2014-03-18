@@ -19,7 +19,7 @@ public class BaseDAO {
 	String username = "root";
 	String password = "";*/
 	
-	public BaseDAO(AuditObj audit) {
+	public BaseDAO(AuditObj audit) throws SQLException {
 		
 		try {                        
             Class.forName("com.mysql.jdbc.Driver");
@@ -32,21 +32,21 @@ public class BaseDAO {
 		String url =
             "jdbc:mysql://"+audit.getDbHost()+":"+audit.getDbPort()+"/"+audit.getDbName();
 		
-		try {
+	
 			
 			dbConnection =
 			    DriverManager.getConnection(
 			                url,audit.getDbUsername(), audit.getDbPassword());	
             
 			
-		} catch (SQLException e) {
+		/*} catch (SQLException e) {
 			
 			System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState:     " + e.getSQLState());
             System.out.println("VendorError:  " + e.getErrorCode());
 
             
-		}
+		}*/
 		
 	}
 
