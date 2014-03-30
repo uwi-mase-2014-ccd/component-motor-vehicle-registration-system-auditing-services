@@ -12,7 +12,7 @@ import com.generic.audit.AuditObj;
 public class JsonUtil {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public String encode(Integer eventAuditId, boolean status,String msg){
+	public String encode(Integer auditId, boolean status,String msg){
 		String jsonString = "";
 		
 		Map debugMap = new HashMap();
@@ -24,7 +24,7 @@ public class JsonUtil {
 		
 		Map map = new HashMap();
 		map.put("code", (status != true) ? 422 : 200 );
-		map.put("data",(status != true) ? "System Error Occured." : "Audit Entry with event ID: "+eventAuditId+" Successfully Created." );
+		map.put("data",(status != true) ? "System Error Occured." : "Audit Entry with Audit ID: "+auditId+" Successfully Created." );
 		map.put("debug", debug);
 		
 		JSONObject jsonObj = new JSONObject(map);

@@ -51,11 +51,10 @@ public class Audit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//System.out.println("param server: " + (String)request.getParameter("jsondata"));
 		String errMsg = "";
 		JsonUtil util = new JsonUtil();
 		AuditObj auditDTO = new AuditObj();
-		
+		AuditDAO auditDAO = null;
 		boolean successFlag = true;
 		
 		
@@ -63,7 +62,7 @@ public class Audit extends HttpServlet {
 			
 			auditDTO = util.decode((String)request.getParameter("jsondata"));
 			
-			AuditDAO auditDAO = new AuditDAO(auditDTO);
+			auditDAO = new AuditDAO(auditDTO);
 			
 			successFlag = auditDAO.insertAudit(auditDTO);
 			
@@ -82,22 +81,24 @@ public class Audit extends HttpServlet {
 		}
 		System.out.println("Audit Status: " + successFlag);
 		
-		String jsonResp = util.encode(auditDTO.getEventId(), successFlag, errMsg);
+		AuditObj auditResp = auditDAO.getLastAudit();
+		
+		String jsonResp = util.encode(auditResp.getAuditId(), successFlag, errMsg);
 		
 		if(successFlag)
 			response.setStatus(200);
 		else
-			response.sendError(422,jsonResp);
+			response.sendError(422,errMsg);
 		
 		System.out.println("jsonResp: "+ jsonResp);
 		
 		// Set response content type
-	      response.setContentType("text/html");
+		response.setContentType("application/json");
 	      
-	      // Actual logic goes here.
-	      PrintWriter outHtml = response.getWriter();
+	     
+	    PrintWriter outHtml = response.getWriter();
 	      
-	      outHtml.println(jsonResp);
+	    outHtml.println(jsonResp);
 	      
 	}
 

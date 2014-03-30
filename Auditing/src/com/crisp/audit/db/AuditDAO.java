@@ -66,24 +66,27 @@ public class AuditDAO extends BaseDAO {
 	}
 	
 	
-	public void getAudits(){
+	public AuditObj getLastAudit(){
 		
+		AuditObj auditDTO = null;
 
 		try {
 			
 			Statement stmt = dbConnection.createStatement();
 						
-			ResultSet RS = stmt.executeQuery("SELECT audit_id, username,comment from event_audit");
+			ResultSet RS = stmt.executeQuery("SELECT * FROM event_audit where dtime = (SELECT max(dtime) from event_audit )");
 			
             while (RS.next()) {
             	
-            	 
+            	auditDTO = new AuditObj();
+            	
             	System.out.println("audit_id : "+RS.getString(1));
             	System.out.println("username : "+RS.getString(2));
             	System.out.println("comment : "+RS.getString(3));
             	
-            	
-            	                
+            	auditDTO.setAuditId(RS.getInt(1));
+            	auditDTO.setUsername(RS.getString(2));
+            	auditDTO.setComments(RS.getString(3));
             }
             
             RS.close();
@@ -99,7 +102,7 @@ public class AuditDAO extends BaseDAO {
             
 		}
 		
-		
+		return auditDTO;
 		
 	}//getSourceCoordinates
 

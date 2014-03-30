@@ -28,7 +28,7 @@ public class TestDB {
 		try {
 			AuditDAO auditDAO = new AuditDAO(audit);
 			boolean responseFlag = auditDAO.insertAudit(audit);
-			auditDAO.getAudits();
+			//auditDAO.getAudits();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

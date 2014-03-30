@@ -10,6 +10,7 @@ public class AuditObj {
 	private int eventId;
 	private String comments;
 	private String event;
+	private int auditId;
 	
 	public AuditObj()
 	{
@@ -110,6 +111,14 @@ public class AuditObj {
 
 	public void setEvent(String event) {
 		this.event = event;
+	}
+
+	public int getAuditId() {
+		return auditId;
+	}
+
+	public void setAuditId(int auditId) {
+		this.auditId = auditId;
 	}
  
  

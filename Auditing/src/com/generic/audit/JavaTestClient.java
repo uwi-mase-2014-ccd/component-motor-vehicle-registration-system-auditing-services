@@ -60,10 +60,10 @@ public class JavaTestClient {
 			obj.put("dbPort",new Integer(3306));
 			obj.put("dbName","genaudit");
 			obj.put("dbUsername","root");
-			obj.put("dbPassword","");
+			obj.put("dbPassword","b18cintegra");
 			obj.put("eventId",new Integer(5));
 			obj.put("userName","ariley");
-			obj.put("comment","User Crisp Technologies registered with username ariley.");
+			obj.put("comment","Process Payment by user busby.");
 			//obj.put("event", "process church offering");
 			
 			System.out.println("JSon Request Parameter: "+obj.toString());
