@@ -10,7 +10,8 @@ This HTTP Request must have a parameter called jsondata. (See schema document fo
 
 The web service will insert an audit record into the event_audit table upon a successful request with valid parameter values.
 
-Service Endpoint: 	http://<<host-name>>:<<port>>/Auditing/Audit	
+Service Endpoint: 	http://<<host-name>>:<<port>>/Auditing/Audit/
+Testing Endpoint: 	http://uwicsc.jacxtech.com/Auditing/Audit/
 
 Argument (Parameter Name: jsondata)
 Database Credentials 
